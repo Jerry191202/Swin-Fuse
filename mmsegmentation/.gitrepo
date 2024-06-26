@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/open-mmlab/mmsegmentation.git
+	branch = main
+	commit = b040e147adfa027bbc071b624bedf0ae84dfc922
+	parent = 0817388056b9d225629c31f26ead84b299d90833
+	method = merge
+	cmdver = 0.4.6
