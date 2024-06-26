@@ -32,6 +32,8 @@ def _preprare_data(imgs: ImageType, model: BaseModel):
     for img in imgs:
         if isinstance(img, np.ndarray):
             data_ = dict(img=img)
+        elif isinstance(img, dict):
+            data_ = img
         else:
             data_ = dict(img_path=img)
         data_ = pipeline(data_)
