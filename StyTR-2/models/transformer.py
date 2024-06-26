@@ -45,7 +45,8 @@ class Transformer(nn.Module):
     def forward(self, style, mask , content, pos_embed_c, pos_embed_s):
 
         # content-aware positional embedding
-        content_pool = self.averagepooling(content)       
+        H = content.shape[3]
+        content_pool = self.averagepooling(content)
         pos_c = self.new_ps(content_pool)
         pos_embed_c = F.interpolate(pos_c, mode='bilinear',size= style.shape[-2:])
 
@@ -66,7 +67,7 @@ class Transformer(nn.Module):
         
         ### HWxNxC to NxCxHxW to
         N, B, C= hs.shape          
-        H = int(np.sqrt(N))
+        # H = int(np.sqrt(N))
         hs = hs.permute(1, 2, 0)
         hs = hs.view(B, C, -1,H)
 

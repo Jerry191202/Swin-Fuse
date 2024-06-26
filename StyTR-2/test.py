@@ -1,6 +1,7 @@
 import argparse
 from pathlib import Path
 import os
+from glob import glob
 import torch
 import torch.nn as nn
 from PIL import Image
@@ -20,7 +21,7 @@ def test_transform(size, crop):
     transform_list = []
    
     if size != 0: 
-        transform_list.append(transforms.Resize(size))
+        transform_list.append(transforms.Resize(size, antialias=True))
     if crop:
         transform_list.append(transforms.CenterCrop(size))
     transform_list.append(transforms.ToTensor())
@@ -29,7 +30,7 @@ def test_transform(size, crop):
 def style_transform(h,w):
     k = (h,w)
     size = int(np.max(k))
-    print(type(size))
+    # print(type(size))
     transform_list = []    
     transform_list.append(transforms.CenterCrop((h,w)))
     transform_list.append(transforms.ToTensor())
@@ -77,9 +78,12 @@ args = parser.parse_args()
 
 
 # Advanced options
-content_size=512
-style_size=512
-crop='store_true'
+original_w, original_h = Image.open(glob(str(Path(args.content_dir)) + "/*")[0]).size
+content_size = original_w
+while content_size % 8 or original_h * content_size % (original_w * 8):
+    content_size += 1
+style_size = content_size
+crop=False
 save_ext='.jpg'
 output_path=args.output
 preserve_color='store_true'
@@ -88,7 +92,7 @@ alpha=args.a
 
 
 
-device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Either --content or --content_dir should be given.
 if args.content:
@@ -155,7 +159,7 @@ style_tf = test_transform(style_size, crop)
 
 for content_path in content_paths:
     for style_path in style_paths:
-        print(content_path)
+        # print(content_path)
        
       
         content_tf1 = content_transform()       
@@ -170,8 +174,8 @@ for content_path in content_paths:
         content = content.to(device).unsqueeze(0)
         
         with torch.no_grad():
-            output= network(content,style)       
-        output = output.cpu()
+            output = network(content, style)[0]
+        output = transforms.Resize(original_w, antialias=True)(output).cpu()
                 
         output_name = '{:s}/{:s}_stylized_{:s}{:s}'.format(
             output_path, splitext(basename(content_path))[0],
