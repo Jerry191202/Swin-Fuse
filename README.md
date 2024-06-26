@@ -1,6 +1,6 @@
 # Swin-Fuse: Deep learning segmentation for 3D FIB-SEM data of porous cathode materials using fused image inputs
 
-**Swin-Fuse** is a deep learning pipeline based on the Swin Transformer to segment FIB-SEM data of a lithium cobalt oxide electrode, utilizing fused secondary electron (SE) and backscattered electron (BSE) images. The main codes are forked from [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) and [${\rm StyTr^2}$](https://github.com/diyiiyiii/StyTR-2) with essential enhancement and bug fixes.
+**Swin-Fuse** is a deep learning pipeline based on the Swin Transformer to segment FIB-SEM data of a lithium cobalt oxide electrode, utilizing fused secondary electron (SE) and backscattered electron (BSE) images. The main codes are forked from [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) and [StyTR-2](https://github.com/diyiiyiii/StyTR-2) with essential enhancement and bug fixes.
 
 ## Prerequisites
 
@@ -117,4 +117,4 @@ The training logs and checkpoint files will be saved under `./mmsegmentation/wor
 
 ## Acknowledgment
 
-This repository derives from [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) and [${\rm StyTr^2}$](https://github.com/diyiiyiii/StyTR-2). For advanced training and testing instructions, please refer to [MMSegmentation's official documentation](https://mmsegmentation.readthedocs.io/en/latest/index.html).
+This repository derives from [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) and [StyTR-2](https://github.com/diyiiyiii/StyTR-2). For advanced training and testing instructions, please refer to [MMSegmentation's official documentation](https://mmsegmentation.readthedocs.io/en/latest/index.html).

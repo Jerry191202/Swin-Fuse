@@ -1,2 +1,3 @@
 results/
 checkpoints/*
+!checkpoints/.gitkeep
