@@ -110,7 +110,7 @@ python tools/train.py configs/swin/swin-tiny-patch4-window7_upernet_4xb2-40ke_fi
 Or if you want to train on mere SE images, run:
 
 ```bash
-python tools python tools/train.py configs/swin/swin-tiny-patch4-window7-in1k-pre_upernet_4xb2-40ke_fib-512x512.py --amp
+python tools/train.py configs/swin/swin-tiny-patch4-window7-in1k-pre_upernet_4xb2-40ke_fib-512x512.py --amp
 ```
 
 The training logs and checkpoint files will be saved under `./mmsegmentation/work_dirs/`.
