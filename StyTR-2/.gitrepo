@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/diyiiyiii/StyTR-2.git
+	branch = main
+	commit = c11ea32913d16dbf2f9a1f82ac077dbf90f143c6
+	parent = 77078ebfc9ca33c9cb8801cbc8d2f6def80bdd70
+	method = merge
+	cmdver = 0.4.6
