@@ -128,7 +128,7 @@ The training logs and checkpoint files will be saved under `./mmsegmentation/wor
     year = {2024},
     month = {10},
     issn = {0003-6951},
-    doi = {10.1063/5.0228024},
+    doi = {10.1063/5.0228024}
 }
 ```
 
