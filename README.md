@@ -26,7 +26,7 @@ pip install -v -e .
 # thus any local modifications made to the code will take effect without reinstallation.
 ```
 
-## Start Inferring immediately!
+## Start inferring immediately!
 
 We provide the `infer.py` Python script for quick beginning. Before running it, please download the required pre-trained models and put them in the correct folders:
 
@@ -91,7 +91,7 @@ Run:
 python gen_dataset.py
 ```
 
-The generated fused images will be saved under `./mmsegmentation/data/fuse/`. This may take some time if you have a large dataset. 
+The generated fused images will be saved under `./data/fuse/`. This may take some time if you have a large dataset. 
 
 ### Training
 
@@ -114,6 +114,23 @@ python tools/train.py configs/swin/swin-tiny-patch4-window7-in1k-pre_upernet_4xb
 ```
 
 The training logs and checkpoint files will be saved under `./mmsegmentation/work_dirs/`.
+
+## Citation
+
+```
+@article{10.1063/5.0228024,
+    author = {Sun, Yujian and Pan, Hongyi and Wang, Bitong and Li, Yu and Wang, Xuelong and Li, Jizhou and Yu, Xiqian},
+    title = {High-fidelity reconstruction of porous cathode microstructures from FIB-SEM data with deep learning},
+    journal = {Applied Physics Letters},
+    volume = {125},
+    number = {17},
+    pages = {173902},
+    year = {2024},
+    month = {10},
+    issn = {0003-6951},
+    doi = {10.1063/5.0228024},
+}
+```
 
 ## Acknowledgment
 
